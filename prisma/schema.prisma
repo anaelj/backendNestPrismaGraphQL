@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Parceiro {
+  CODPARC       Int     @id
+  CODVEND       Int?
+  NOMEPARC      String?
+  RAZAOSOCIAL   String?
+  TIPPESSOA     String?
+  CODPARCMATRIZ Int?
+  CODCID        Int
+  CIDADE        Cidade  @relation(fields: [CODCID], references: [CODCID])
+
+  @@map("TGFPAR")
+}
+
+model Cidade {
+  CODCID   Int        @id
+  NOMECID  String
+  UF       Int?
+  Parceiro Parceiro[]
+
+  @@map("TSICID")
+}

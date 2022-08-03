@@ -1,0 +1,24 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Cidade {
+  CODCID: ID!
+  NOMECID: String!
+  UF: Float
+}
+
+type Parceiro {
+  CODPARC: ID!
+  CODVEND: Float!
+  NOMEPARC: String!
+  RAZAOSOCIAL: String
+  TIPPESSOA: String!
+  CIDADE: Cidade
+  CODPARCMATRIZ: Float!
+}
+
+type Query {
+  parceiros: [Parceiro!]!
+  cidades: [Cidade!]!
+}
